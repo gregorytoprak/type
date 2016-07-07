@@ -1,38 +1,42 @@
-$(document).ready(function() {
-  var alphabet = "abcdefghijklmnopqrstuvwxyz".split("")
+$(document).ready(setStage)
+
+$(document).on("keyup", update)
+
+var ladder = makeLadder()
+
+function makeLadder() {
+  var cards = "abcdefghijklmnopqrstuvwxyz".split("")
   var ladder = {}
-  for (var i in alphabet) {
-    var letter = alphabet[i]
-    ladder[letter] = {step: 0, hits: 0}
+  for (var i in cards) {
+    var card = cards[i]
+    ladder[card] = {step: 0, hits: 0}
   }
-  var current = ""
-  var card = pickCard(ladder)
-  $("#prompt").text(card)
+  return ladder
+}
 
-  $(document).on("keyup", function() {
-    current += event.key
-    if (current.length >= card.length) {
-      if (current === card) {
-        console.log("YES: "+card)
-        ladder[card].step += 1
-        $("#highlight").css("background-color", "#0a0")
-      } else {
-        console.log("NO: "+card)
-        ladder[card].step = 0
-        $("#highlight").css("background-color", "#a00")
-      }
-      ladder[card].hits += 1
-      $("#highlight").fadeIn(0, function() {
-        $("#highlight").fadeOut()
-      })
-      $("input").val("")
-      current = ""
-      card = pickCard(ladder)
-      $("#prompt").text(card)
+function update() {
+  var card = $("#prompt").text()
+  var current = $("#input").val()
+  if (current.length >= card.length) {
+    if (current === card) {
+      ladder[card].step += 1
+      $("#highlight").css("background-color", "#0a0")
+    } else {
+      ladder[card].step = 0
+      $("#highlight").css("background-color", "#a00")
     }
-  })
+    ladder[card].hits += 1
+    $("#highlight").fadeIn(0, function() {
+      $("#highlight").fadeOut()
+    })
+    setStage()
+  }
+}
 
-})
+function setStage() {
+  $("#prompt").text(pickCard(ladder))
+  $("#input").val("")
+}
 
 function pickCard(ladder) {
   var currStep = Infinity
