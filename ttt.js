@@ -13,13 +13,18 @@ $(document).ready(function() {
     current += event.key
     if (current.length >= card.length) {
       if (current === card) {
+        console.log("YES: "+card)
         ladder[card].step += 1
-        console.log("YES")
+        $("#highlight").css("background-color", "#0a0")
       } else {
+        console.log("NO: "+card)
         ladder[card].step = 0
-        console.log("NO")
+        $("#highlight").css("background-color", "#a00")
       }
       ladder[card].hits += 1
+      $("#highlight").fadeIn(0, function() {
+        $("#highlight").fadeOut()
+      })
       $("input").val("")
       current = ""
       card = pickCard(ladder)
@@ -45,6 +50,9 @@ function pickCard(ladder) {
       // ties
       currBest.push(card)
     }
+  }
+  if (ladder[currBest[0]].step >= 1) {
+    return ""
   }
   return randItem(currBest)
 }
