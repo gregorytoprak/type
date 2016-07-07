@@ -15,26 +15,27 @@ function makeLadder() {
 }
 
 function update() {
-  var card = $("#prompt").text()
-  var current = $("#input").val()
-  if (current.length >= card.length) {
-    if (current === card) {
+  var card = $("#card").text()
+  var input = $("#input").val()
+  if (input.length >= card.length) {
+    var highlightColor
+    ladder[card].hits += 1
+    if (input === card) {
       ladder[card].step += 1
-      $("#highlight").css("background-color", "#0a0")
+      highlightColor = "#0a0"
     } else {
       ladder[card].step = 0
-      $("#highlight").css("background-color", "#a00")
+      highlightColor = "#a00"
     }
-    ladder[card].hits += 1
-    $("#highlight").fadeIn(0, function() {
-      $("#highlight").fadeOut()
-    })
+    $("#highlight")
+      .css("background-color", highlightColor)
+      .fadeIn(0, function() { $("#highlight").fadeOut() })
     setStage()
   }
 }
 
 function setStage() {
-  $("#prompt").text(pickCard(ladder))
+  $("#card").text(pickCard(ladder))
   $("#input").val("")
 }
 
