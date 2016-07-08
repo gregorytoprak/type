@@ -56,9 +56,9 @@ function pickCard(ladder) {
       currBest.push(card)
     }
   }
-  if (ladder[currBest[0]].step >= 1) {
-    return ""
-  }
+  // if (ladder[currBest[0]].step >= 10) {
+  //   return ""
+  // }
   return randItem(currBest)
 }
 
