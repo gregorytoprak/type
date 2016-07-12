@@ -5,7 +5,7 @@ $(document).on("keyup", update)
 var ladder = makeLadder()
 
 function makeLadder() {
-  var cards = "abcdefghijklmnopqrstuvwxyz".split("")
+  var cards = "abcdefghijklmnopqrstuvwxyz;,./".split("")
   var ladder = {}
   for (var i in cards) {
     var card = cards[i]
