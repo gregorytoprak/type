@@ -8,11 +8,18 @@ $(document).ready(function() {
     var card = cards[i]
     state.ladder[card] = {step: 0, tier: Math.floor(i/10), due: $.now()}
   }
+  state.ladder[" "] = {step: Infinity, tier: Infinity, due: Infinity}
 
-  setStage()
+  state.init = true
+  $("#card").text("[space]")
 
   $(document).on("keyup", function() {
-    var card = $("#card").text()
+    var card
+    if (state.init) {
+      card = " "
+    } else {
+      card = $("#card").text()
+    }
     var input = $("#input").val()
     if (input.length >= card.length) {
       var highlightColor
@@ -23,7 +30,11 @@ $(document).ready(function() {
         state.ladder[card].step = 0
         highlightColor = "#a00"
       }
-      state.ladder[card].due = $.now()+1000*delaySeconds(state.ladder[card].step)
+      if (state.init) {
+        state.init = false
+      } else {
+        state.ladder[card].due = $.now()+1000*delaySeconds(state.ladder[card].step)
+      }
       $("#highlight")
         .css("background-color", highlightColor)
         .fadeIn(0, function() { $("#highlight").fadeOut() })
@@ -61,7 +72,8 @@ $(document).ready(function() {
       }
     }
     if (dueCards.length === 0) {
-      return "WIN"
+      state.init = true
+      return "[space]"
     }
     return randItem(dueCards)
   }
