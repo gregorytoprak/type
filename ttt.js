@@ -5,11 +5,12 @@ $(document).on("keyup", update)
 var ladder = makeLadder()
 
 function makeLadder() {
-  var cards = "abcdefghijklmnopqrstuvwxyz;,./".split("")
+  // var cards = "abcdefghijklmnopqrstuvwxyz;,./".split("")
+  var cards = "asd".split("")
   var ladder = {}
   for (var i in cards) {
     var card = cards[i]
-    ladder[card] = {step: 0, hits: 0}
+    ladder[card] = {step: 0}
   }
   return ladder
 }
@@ -19,7 +20,6 @@ function update() {
   var input = $("#input").val()
   if (input.length >= card.length) {
     var highlightColor
-    ladder[card].hits += 1
     if (input === card) {
       ladder[card].step += 1
       highlightColor = "#0a0"
@@ -40,26 +40,19 @@ function setStage() {
 }
 
 function pickCard(ladder) {
+  var currWorst
   var currStep = Infinity
-  var currHits = Infinity
-  var currBest = []
   for (var card in ladder) {
     var step = ladder[card].step
-    var hits = ladder[card].hits
-    if (step < currStep || (step === currStep && hits < currHits)) {
-      // improves
+    if (step < currStep) {
       currStep = step
-      currHits = hits
-      currBest = [card]
-    } else if (step === currStep && hits === currHits) {
-      // ties
-      currBest.push(card)
+      currWorst = []
+    }
+    if (step <= currStep) {
+      currWorst.push(card)
     }
   }
-  // if (ladder[currBest[0]].step >= 10) {
-  //   return ""
-  // }
-  return randItem(currBest)
+  return randItem(currWorst)
 }
 
 function randItem(arr) {
