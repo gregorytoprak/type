@@ -54,7 +54,7 @@ $(document).ready(function() {
   function updateTier() {
     var grow = true
     for (var card in state.ladder) {
-      if (state.ladder[card].tier <= state.tier && state.ladder[card].step < 5) {
+      if (state.ladder[card].tier <= state.tier && state.ladder[card].step < 3) {
         grow = false
       }
     }
