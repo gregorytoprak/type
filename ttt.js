@@ -3,7 +3,9 @@ $(document).ready(function() {
   var state = {}
   state.tier = 0
   state.ladder = {}
-  var cards = "etaoinsrhldcumfpgwybvkxjqz./,;".split("")
+  var downcase = "etaoinsrhldcumfpgwybvkxjqz./,;1234567890-][`'\\=".split("")
+  var upcase   = "ETAOINSRHLDCUMFPGWYBVKXJQZ>?<:!@#$%^&*()_}{~\"|+".split("")
+  var cards = [...downcase, ...upcase]
   for (var i in cards) {
     var card = cards[i]
     state.ladder[card] = {step: 0, tier: Math.floor(i/10), due: $.now()}
