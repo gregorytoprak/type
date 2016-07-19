@@ -27,7 +27,7 @@ main {
   height: 210px;
   margin: 0 auto;
   padding: 10px;
-  background-color: blue;
+  background-color: #00a;
   position: absolute;
   z-index: -1;
   display: none;
