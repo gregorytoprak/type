@@ -5,37 +5,37 @@ $(document).ready(function() {
   state.ladder = {}
   var downcase = "etaoinsrhldcumfpgwybvkxjqz./,;1234567890-][`'\\=".split("")
   var upcase   = "ETAOINSRHLDCUMFPGWYBVKXJQZ>?<:!@#$%^&*()_}{~\"|+".split("")
-  var cards = [...downcase, ...upcase]
-  for (var i in cards) {
-    var card = cards[i]
-    state.ladder[card] = {step: 0, tier: Math.floor(i/10), due: $.now()}
+  var chars = [...downcase, ...upcase]
+  for (var i in chars) {
+    var char = chars[i]
+    state.ladder[char] = {step: 0, tier: Math.floor(i/10), due: $.now()}
   }
   state.ladder[" "] = {step: Infinity, tier: Infinity, due: Infinity}
 
   state.init = true
-  $("#card").text("[space]")
+  $("#front").text("[space]")
 
   $(document).on("keyup", function() {
-    var card
+    var front
     if (state.init) {
-      card = " "
+      front = " "
     } else {
-      card = $("#card").text()
+      front = $("#front").text()
     }
     var input = $("#input").val()
-    if (input.length >= card.length) {
+    if (input.length >= front.length) {
       var highlightColor
-      if (input === card) {
-        state.ladder[card].step += 1
+      if (input === front) {
+        state.ladder[front].step += 1
         highlightColor = "#0a0"
       } else {
-        state.ladder[card].step = 0
+        state.ladder[front].step = 0
         highlightColor = "#a00"
       }
       if (state.init) {
         state.init = false
       } else {
-        state.ladder[card].due = $.now()+1000*delaySeconds(state.ladder[card].step)
+        state.ladder[front].due = $.now()+1000*delaySeconds(state.ladder[front].step)
       }
       $("#highlight")
         .css("background-color", highlightColor)
@@ -45,7 +45,7 @@ $(document).ready(function() {
   })
 
   function setStage() {
-    $("#card").text(pickCard())
+    $("#front").text(pickCard())
     $("#input").val("")
   }
 
