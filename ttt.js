@@ -21,7 +21,7 @@ the and ing ion tio ent ati for her ter`.split("\n").map( (line) => line.split("
   }
 
   function dueTime(box) {
-    return $.now()+1000*Math.pow(2, box)
+    return $.now()+1000*Math.pow(5, box)
   }
 
   class Card {

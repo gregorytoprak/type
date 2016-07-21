@@ -22,7 +22,7 @@ In each tier, the [Leitner System](https://en.wikipedia.org/wiki/Leitner_system)
 
 Every character begins in box zero and is 'due'. When you successfully type a character, it advances one box. (Incorrectly typing a character sends it back to box zero.)
 
-After typing a character, its next appearance time is based on its box number: a character that has just entered box k will be next due in 2^k seconds.
+After typing a character, its next appearance time is based on its box number: a character that has just entered box k will be next due in 5^k seconds.
 
 To choose a character to be typed, we select randomly from all of the characters currently due for the current tier. (If nothing is currently due, the character that will become due next is chosen.)
 
