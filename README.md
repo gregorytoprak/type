@@ -22,7 +22,7 @@ In each tier, the [Leitner System](https://en.wikipedia.org/wiki/Leitner_system)
 
 Every character begins in box zero and is 'due'. When you successfully type a character, it advances one box. (Incorrectly typing a character sends it back to box zero.)
 
-After typing a character, its next appearance time is based on its box number: a character that has just entered box k will be next due in 5^k seconds.
+After typing a character, its next appearance time is based on its box number: a character that has just entered box k will be next due in 3^k seconds.
 
 To choose a character to be typed, we select randomly from all of the characters currently due for the current tier. (If nothing is currently due, the character that will become due next is chosen.)
 
@@ -32,22 +32,19 @@ That's all there is to it, except for the choice of characters in tiers.
 
 1. top ten most common letters
  - (e t a o i n s r h l)
-2. second ten most common letters
- - (d c u m f p g w y b)
-3. 1 and 2 combined
-4. last six letters
- - (v k x j q z)
-5. 1 and 4 combined
-6. 2 and 4 combined
-7. 1, 2, and 4 combined (the whole alphabet)
-8. the whole alphabet capitalized
-9. the ten digits
+2. include the second ten most common letters
+ - 1 + (d c u m f p g w y b)
+3. include the last six letters (the whole alphabet)
+ - 2 + (v k x j q z)
+4. the whole alphabet capitalized
+ - (E T A O I N S R H L D C U M F P G W Y B V K X J Q Z)
+5. the ten digits
  - (1 2 3 4 5 6 7 8 9 0)
-10. the thirty-two standard punctuation characters on the keyboard/in ASCII
+6. the thirty-two standard punctuation characters on the keyboard/in ASCII
  - (! @ # $ % ^ & * ( ) [ ] \` \ ' = / ; , . - { } ~ | " + ? : < > \_)
-11. top ten most common digraphs
+7. top ten most common digraphs
  - (th he in er an re on at en nd)
-12. top ten most common trigraphs
+8. top ten most common trigraphs
  - (the and ing ion tio ent ati for her ter)
 
 ## Limitations

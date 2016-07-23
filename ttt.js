@@ -2,11 +2,7 @@ $(document).ready(function() {
 
 var rawLadder =
 `e t a o i n s r h l
-d c u m f p g w y b
 e t a o i n s r h l d c u m f p g w y b
-v k x j q z
-e t a o i n s r h l v k x j q z
-d c u m f p g w y b v k x j q z
 e t a o i n s r h l d c u m f p g w y b v k x j q z
 E T A O I N S R H L D C U M F P G W Y B V K X J Q Z
 1 2 3 4 5 6 7 8 9 0
@@ -20,8 +16,8 @@ the and ing ion tio ent ati for her ter`.split("\n").map( (line) => line.split("
     return array[ Math.floor(array.length * Math.random()) ]
   }
 
-  function dueTime(box) {
-    return $.now()+1000*Math.pow(5, box)
+  function due(box = 0) {
+    return $.now()+1000*Math.pow(3, box)
   }
 
   class Card {
@@ -29,7 +25,7 @@ the and ing ion tio ent ati for her ter`.split("\n").map( (line) => line.split("
       this.face = face
       this.back = back
       this.box = 0
-      this.due = $.now()
+      this.due = due()
     }
   }
 
@@ -52,7 +48,7 @@ the and ing ion tio ent ati for her ter`.split("\n").map( (line) => line.split("
         this.card.box = 0
         this.highlightColor = color.red
       }
-      this.card.due = dueTime(this.card.box)
+      this.card.due = due(this.card.box)
 
       this.transition()
     }
@@ -70,7 +66,7 @@ the and ing ion tio ent ati for her ter`.split("\n").map( (line) => line.split("
         .css("background-color", this.highlightColor)
         .fadeIn(0, function() { $("#highlight").fadeOut() })
 
-      this.card = randomItem( this.ladder[this.step].filter( (card) => card.due <= $.now() ) )
+      this.card = randomItem( this.ladder[this.step].filter( (card) => card.due <= due() ) )
       if (this.card === undefined) {
         this.card = this.ladder[this.step].reduce( (acc, cur) => (acc.due < cur.due) ? acc : cur, Infinity)
       }
