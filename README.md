@@ -2,7 +2,7 @@
 
 "This touch typing trainer teaches through the theory of spaced repetition."
 
-[ttt.gdt.io](http://ttt.gdt.io)
+[type.gdt.io](http://type.gdt.io)
 
 ## What it is
 
