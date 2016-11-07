@@ -1,4 +1,4 @@
-# Touch Typing Trainer
+# touch-typing-trainer
 
 "This touch typing trainer teaches through the theory of spaced repetition."
 
