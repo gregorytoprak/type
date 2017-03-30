@@ -1,0 +1,12 @@
+{
+  "name": "touch-typing-trainer",
+  "version": "1.0.0",
+  "homepage": "http://type.gdt.io/",
+  "private": true,
+  "scripts": {
+    "deploy": "surge ./public type.gdt.io && open http://type.gdt.io/"
+  },
+  "devDependencies": {
+    "surge": "^0.19.0"
+  }
+}
