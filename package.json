@@ -1,12 +1,13 @@
 {
   "name": "touch-typing-trainer",
   "version": "1.0.0",
-  "homepage": "http://type.gdt.io/",
+  "homepage": "https://gdtoprak.github.io/touch-typing-trainer",
+  "author": "gdtoprak",
   "private": true,
   "scripts": {
-    "deploy": "surge ./public type.gdt.io && open http://type.gdt.io/"
+    "deploy": "gh-pages -d site"
   },
   "devDependencies": {
-    "surge": "^0.19.0"
+    "gh-pages": "^1.0.0"
   }
 }
