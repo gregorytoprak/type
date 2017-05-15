@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./a/favicon.ico">
+    <title>Touch Typing Trainer</title>
+    <link rel="stylesheet" href="./a/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./a/type.js"></script>
+  </head>
+  <body>
+    <h1>Touch Typing Trainer</h1>
+    <main>
+      <div id="highlight"></div>
+      <div id="wrap">
+        <div id="face"></div>
+        <input id="input" type="text" autofocus></input>
+      </div>
+    </main>
+    <div id="description">
+      <h2 id="what-it-is">What it is</h2>
+      <p>Type the presented character without looking at your keyboard to learn its location and improve your typing.</p>
+      <p>Designed for the early stages of learning to touch type. This trainer repeatedly gives you characters (and short n-grams) to type at an interval determined by your history with that character.</p>
+      <p>This allows your muscle memory to develop; it teaches you to remember where each key is without having to look.</p>
+      <p>After mastery of key locations has been developed, common bigrams and trigrams are introduced for greater typing efficacy.</p>
+      <h2 id="how-it-works">How it works</h2>
+      <p>There are a number of &#39;tiers&#39; of characters. You start in the first tier, with the ten <a href="http://norvig.com/mayzner.html">most common</a> letters in English. You advance to the next tier once every character in the current tier has been typed correctly 3 times in a row. That is to say, once every character is in box 3 or above.</p>
+      <p>In each tier, the <a href="https://en.wikipedia.org/wiki/Leitner_system">Leitner System</a> of spaced repetition is used.</p>
+      <p>Every character begins in box zero and is &#39;due&#39;. When you successfully type a character, it advances one box. (Incorrectly typing a character sends it back to box zero.)</p>
+      <p>After typing a character, its next appearance time is based on its box number: a character that has just entered box k will be next due in 2^k seconds.</p>
+      <p>To choose a character to be typed, we select randomly from all of the characters currently due for the current tier. (If nothing is currently due, the character that will become due next is chosen.)</p>
+      <p>That&#39;s all there is to it, except for the choice of characters in tiers.</p>
+      <h2 id="tiers">Tiers</h2>
+      <ol>
+      <li>top ten most common letters<ul>
+      <li>(e t a o i n s r h l)</li>
+      </ul>
+      </li>
+      <li>second ten most common letters<ul>
+      <li>(d c u m f p g w y b)</li>
+      </ul>
+      </li>
+      <li>1 and 2 combined</li>
+      <li>last six letters<ul>
+      <li>(v k x j q z)</li>
+      </ul>
+      </li>
+      <li>1 and 4 combined</li>
+      <li>2 and 4 combined</li>
+      <li>1, 2, and 4 combined (the whole alphabet)</li>
+      <li>the whole alphabet capitalized</li>
+      <li>the ten digits<ul>
+      <li>(1 2 3 4 5 6 7 8 9 0)</li>
+      </ul>
+      </li>
+      <li>the thirty-two standard punctuation characters on the keyboard/in ASCII<ul>
+      <li>(! @ # $ % ^ &amp; * ( ) [ ] ` \ &#39; = / ; , . - { } ~ | &quot; + ? : &lt; &gt; _)</li>
+      </ul>
+      </li>
+      <li>top ten most common digraphs<ul>
+      <li>(th he in er an re on at en nd)</li>
+      </ul>
+      </li>
+      <li>top ten most common trigraphs<ul>
+      <li>(the and ing ion tio ent ati for her ter)</li>
+      </ul>
+      </li>
+      </ol>
+      <h2 id="limitations">Limitations</h2>
+      <p>This trainer is not enough for absolute mastery, of course. After sufficient skill has been developed here, the final step is to use this touch typing in your everyday keyboard use! It is only over time that true skill can be developed.</p>
+      <p>I hope touch typing becomes so natural that you forget it was even a skill you had to learn.</p>
+      <p>Good luck!</p>
+      <p><a href="http://gdt.io/">by GDT</a></p>
+    </div>
+  </body>
+</html>
