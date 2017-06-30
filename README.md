@@ -1,4 +1,4 @@
-# [touch-typing-trainer](https://type.gdt.io/)
+# [Touch Typing Trainer](https://type.gdt.io/)
 
 This touch typing trainer teaches through the theory of spaced repetition.
 
