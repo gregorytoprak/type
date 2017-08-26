@@ -7,7 +7,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "deploy": "cd site && now deploy && now alias"
+    "deploy": "cd site && now deploy && now alias",
+    "start": "serve site"
   },
   "devDependencies": {},
   "dependencies": {}
