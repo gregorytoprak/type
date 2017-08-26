@@ -1,5 +1,7 @@
 $(document).ready(function() {
-  var rawLadder = `e t a o i n s r h l
+  // prettier-ignore
+  var rawLadder =
+`e t a o i n s r h l
 e t a o i n s r h l d c u m f p g w y b
 e t a o i n s r h l d c u m f p g w y b v k x j q z
 E T A O I N S R H L D C U M F P G W Y B V K X J Q Z
@@ -31,6 +33,9 @@ the and ing ion tio ent ati for her ter`
 
   class State {
     constructor() {
+      this.fixedTier = $("#tier-selector").val();
+      this.advance = $("#advance").val();
+      console.log(this.fixedTier, this.advance);
       this.ladder = rawLadder.map(rawTier =>
         rawTier.map(cardFace => new Card(cardFace))
       );
