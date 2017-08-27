@@ -33,15 +33,23 @@ the and ing ion tio ent ati for her ter`
 
   class State {
     constructor() {
-      this.fixedTier = $("#tier-selector").val();
-      this.advance = $("#advance").val();
-      console.log(this.fixedTier, this.advance);
       this.ladder = rawLadder.map(rawTier =>
         rawTier.map(cardFace => new Card(cardFace))
       );
-      this.step = 0;
       this.highlightColor = color.blue;
-      this.transition();
+      this.step = 0;
+      this.advance = true;
+      this.manualTierSet();
+    }
+    manualTierSet() {
+      var oldStep = this.step;
+      this.step = $("#tier-selector").val();
+      this.advance = $("#advance").is(":checked");
+      if (oldStep !== this.step) {
+        this.highlightColor = color.blue;
+        this.transition();
+      }
+      $("#input").focus()
     }
     keyup() {
       this.input = $("#input").val();
@@ -63,12 +71,16 @@ the and ing ion tio ent ati for her ter`
       if (this.ladder[this.step].every(card => card.box >= 3)) {
         this.ladder[this.step].forEach(card => {
           card.box = 0;
+          card.due = due();
         });
-        this.step += 1;
+        if (this.advance) {
+          this.step += 1;
+        }
         if (this.step >= this.ladder.length) {
           this.step = 0;
-          this.highlightColor = color.blue;
         }
+        this.highlightColor = color.blue;
+        $("#tier-selector").val(this.step);
       }
 
       $("#highlight")
@@ -77,6 +89,7 @@ the and ing ion tio ent ati for her ter`
           $("#highlight").fadeOut();
         });
 
+      // get a random due card, or if none, the next soonest card due
       this.card = randomItem(
         this.ladder[this.step].filter(card => card.due <= due())
       );
@@ -93,5 +106,6 @@ the and ing ion tio ent ati for her ter`
   }
 
   var state = new State();
+  $("#settings").change(state.manualTierSet.bind(state));
   $(document).on("keyup", state.keyup.bind(state));
 });
