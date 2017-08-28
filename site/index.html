@@ -21,15 +21,16 @@
         <input id="input" type="text" autocomplete="off" autofocus></input>
         <div id="settings">
           <select id="tier-selector" name="Tier Selector">
-            <option value="0">Tier 1</option>
-            <option value="1">Tier 2</option>
-            <option value="2">Tier 3</option>
-            <option value="3">Tier 4</option>
-            <option value="4">Tier 5</option>
-            <option value="5">Tier 6</option>
-            <option value="6">Tier 7</option>
-            <option value="7">Tier 8</option>
+            <option value="0">Tier 1: 10 most frequent letters</option>
+            <option value="1">Tier 2: 20 most frequent letters</option>
+            <option value="2">Tier 3: all 26 letters lowercase</option>
+            <option value="3">Tier 4: all 26 letters uppercase</option>
+            <option value="4">Tier 5: all 10 digits</option>
+            <option value="5">Tier 6: 32 punctuation characters</option>
+            <option value="6">Tier 7: 10 most frequent digraphs</option>
+            <option value="7">Tier 8: 10 most frequent trigraphs</option>
           </select>
+          <br />
           <input id="advance" type="checkbox" checked>Advance through tiers</input>
         </div>
       </div>
@@ -44,7 +45,7 @@
       <p>There are a number of &#39;tiers&#39; of characters. You start in the first tier, with the ten <a href="http://norvig.com/mayzner.html">most common</a> letters in English. You advance to the next tier once every character in the current tier has been typed correctly 3 times in a row. That is to say, once every character is in box 3 or above.</p>
       <p>In each tier, the <a href="https://en.wikipedia.org/wiki/Leitner_system">Leitner System</a> of spaced repetition is used.</p>
       <p>Every character begins in box zero and is &#39;due&#39;. When you successfully type a character, it advances one box. (Incorrectly typing a character sends it back to box zero.)</p>
-      <p>After typing a character, its next appearance time is based on its box number: a character that has just entered box k will be next due in 2^k seconds.</p>
+      <p>After typing a character, its next appearance time is based on its box number: a character that has just entered box k will be next due in 3^k seconds.</p>
       <p>To choose a character to be typed, we select randomly from all of the characters currently due for the current tier. (If nothing is currently due, the character that will become due next is chosen.)</p>
       <p>That&#39;s all there is to it, except for the choice of characters in tiers.</p>
       <h2 id="tiers">Tiers</h2>
@@ -78,6 +79,11 @@
       <p>This trainer is not enough for absolute mastery, of course. After sufficient skill has been developed here, the final step is to use this touch typing in your everyday keyboard use! It is only over time that true skill can be developed.</p>
       <p>I hope touch typing becomes so natural that you forget it was even a skill you had to learn.</p>
       <p>Good luck!</p>
+      <hr />
+      <p>A project by <a href="https://gdt.io/">gdtoprak</a>.<br />
+      Brought to you with the support of <a href="http://acritch.com">acritch</a> and users like you.<br />
+      Thank you!</p>
+      <hr />
     </div>
   </body>
 </html>

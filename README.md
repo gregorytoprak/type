@@ -52,3 +52,11 @@ This trainer is not enough for absolute mastery, of course. After sufficient ski
 I hope touch typing becomes so natural that you forget it was even a skill you had to learn.
 
 Good luck!
+
+---
+
+A project by [gdtoprak](https://gdt.io/).  
+Brought to you with the support of [acritch](http://acritch.com) and users like you.  
+Thank you!
+
+---
