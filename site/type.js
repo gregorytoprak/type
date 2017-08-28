@@ -43,13 +43,13 @@ the and ing ion tio ent ati for her ter`
     }
     manualTierSet() {
       var oldStep = this.step;
-      this.step = $("#tier-selector").val();
+      this.step = parseInt($("#tier-selector").val());
       this.advance = $("#advance").is(":checked");
       if (oldStep !== this.step) {
         this.highlightColor = color.blue;
-        this.transition();
       }
-      $("#input").focus()
+      this.transition();
+      $("#input").focus();
     }
     keyup() {
       this.input = $("#input").val();
@@ -80,7 +80,7 @@ the and ing ion tio ent ati for her ter`
           this.step = 0;
         }
         this.highlightColor = color.blue;
-        $("#tier-selector").val(this.step);
+        $("#tier-selector").val(this.step.toString());
       }
 
       $("#highlight")
