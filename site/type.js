@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  // prettier-ignore
   var rawLadder =
 `e t a o i n s r h l
 e t a o i n s r h l d c u m f p g w y b
@@ -109,3 +108,4 @@ the and ing ion tio ent ati for her ter`
   $("#settings").change(state.manualTierSet.bind(state));
   $(document).on("keyup", state.keyup.bind(state));
 });
+
