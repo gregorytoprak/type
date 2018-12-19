@@ -1,7 +1,5 @@
 {
+  "version": 2,
   "name": "type",
-  "alias": "type.gdt.io",
-  "static": {
-    "public": "site"
-  }
+  "alias": "type.gdt.io"
 }
