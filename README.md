@@ -55,7 +55,7 @@ Good luck!
 
 ---
 
-A project by [gdtoprak](https://gdt.io/).  
+A project by [GDT](https://gdt.io/).  
 Brought to you with the support of [acritch](http://acritch.com) and users like you.  
 Thank you!
 
